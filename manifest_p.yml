@@ -1,0 +1,12 @@
+---
+applications:
+- name: demo_app_p
+  memory: 1024M
+  instances: 1
+  buildpack: java_buildpack_offline
+  path: ./pcf_sample_app.war
+  env:
+    datasource_jdbc-url: ${vcap.services.mysql-pv.credentials.uri}
+    datasource_username: ${vcap.services.mysql-pv.credentials.username}
+    datasource_password: ${vcap.services.mysql-pv.credentials.password}
+    datasource_name: MYSQL_PROVIDER 
